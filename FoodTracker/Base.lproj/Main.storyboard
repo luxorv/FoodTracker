@@ -47,7 +47,7 @@
                                             <constraint firstAttribute="width" secondItem="AI4-K3-DIb" secondAttribute="height" multiplier="1:1" id="dyT-nS-TCU"/>
                                         </constraints>
                                         <connections>
-                                            <outletCollection property="gestureRecognizers" destination="UKe-rl-LaZ" appends="YES" id="YlW-BC-g84"/>
+                                            <outletCollection property="gestureRecognizers" destination="ggb-WX-t9h" appends="YES" id="fYP-6M-keH"/>
                                         </connections>
                                     </imageView>
                                 </subviews>
@@ -73,9 +73,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="UKe-rl-LaZ">
+                <tapGestureRecognizer id="ggb-WX-t9h">
                     <connections>
-                        <action selector="selectImageFromPhotoLibrary:" destination="BYZ-38-t0r" id="6Ti-EK-JvX"/>
+                        <action selector="selectImageFromPhotoLibrary:" destination="BYZ-38-t0r" id="yUT-3y-HRp"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

@@ -24,6 +24,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         // Handle the text field's user input through delegate callbacks.
         
         nameTextField.delegate = self
+        
+        photoImageView.userInteractionEnabled = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,7 +36,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     // MARK: Actions
     
     @IBAction func selectImageFromPhotoLibrary(sender: UITapGestureRecognizer) {
-    
+        
         // Hide the keyboard
         
         nameTextField.resignFirstResponder()
@@ -68,7 +70,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    
+        // The info dictionary contains multiple representations of the image, and this uses the original.
+        
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         
         // Set photoImageView to display the selected image.
         
@@ -88,10 +94,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         textField.resignFirstResponder()
         
         return true
-        
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
+        
+        // Set the label text to what's in the text field.
         
         mealNameLabel.text = textField.text
         
