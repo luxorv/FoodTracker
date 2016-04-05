@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MealViewController.swift
 //  FoodTracker
 //
 //  Created by Victor Manuel Polanco on 3/18/16.
@@ -8,12 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // MARK: Properties
     
     @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var mealNameLabel: UILabel!
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var ratingControl: RatingControl!
     
@@ -37,7 +36,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     // MARK: Actions
     
     @IBAction func selectImageFromPhotoLibrary(sender: UITapGestureRecognizer) {
-        
         // Hide the keyboard
         nameTextField.resignFirstResponder()
         
@@ -56,13 +54,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     // MARK: UIImagePickerControllerDelegate
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        
         // Dismiss the picker if user canceled.
         dismissViewControllerAnimated(true, completion: nil)
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-    
         // The info dictionary contains multiple representations of the image, and this uses the original.
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         
@@ -76,20 +72,13 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     // MARK: UITextFieldDelegate
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        
         // Hide the keyboard
-        
         textField.resignFirstResponder()
-        
         return true
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
-        
         // Set the label text to what's in the text field.
-        
-        mealNameLabel.text = textField.text
-        
     }
     
     
