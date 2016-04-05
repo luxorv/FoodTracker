@@ -28,6 +28,18 @@ class MealTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: TableView Actions
+    
+    @IBAction func unwindToMealList(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.sourceViewController as? MealViewController,
+            meal = sourceViewController.meal {
+            // Add new meal
+            let newIndexPath = NSIndexPath(forRow: meals.count, inSection: 0)
+            meals.append(meal)
+            tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
+        }
+    }
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -61,7 +73,4 @@ class MealTableViewController: UITableViewController {
         
         meals += [meal1, meal2, meal3]
     }
-    
-    
-    
 }
